@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+GreaseTrapped_clone_0/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-16.dylib
+GreaseTrapped_clone_1/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-16.dylib
+GreaseTrapped/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-16.dylib
