@@ -12,6 +12,8 @@ public class PlayerController : NetworkBehaviour
     
     public float smoothTurn;
     public float speed;
+
+    public bool miniGameState;
     public CinemachineFreeLook c;
     void Initialize()
     {
@@ -19,6 +21,7 @@ public class PlayerController : NetworkBehaviour
         c=Transform.FindObjectOfType<CinemachineFreeLook>();
         c.LookAt=transform;
         c.Follow = transform;
+        miniGameState = false;
     }
 
     public override void OnNetworkSpawn()
@@ -28,7 +31,7 @@ public class PlayerController : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsOwner||!Application.isFocused) return;
+        if (!IsOwner||!Application.isFocused||miniGameState) return;
         float Vert = Input.GetAxisRaw("Vertical");
         float Hori = Input.GetAxisRaw("Horizontal");
 
