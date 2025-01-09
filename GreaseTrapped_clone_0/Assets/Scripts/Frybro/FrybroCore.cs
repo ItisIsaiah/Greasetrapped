@@ -9,14 +9,16 @@ public class FrybroCore : NetworkBehaviour
     public NavMeshAgent agent;
     public GameObject[] playerList;
     public GameObject[] fries;
-
+    public Transform[] RoomPoints;
 
     public ChaseState chaseState = new ChaseState();
     public PatrolState patrolState = new PatrolState();
     public LurkState lurkState = new LurkState();
+    FOV sight;
     // Start is called before the first frame update
     void Start()
     {
+        sight = GetComponent<FOV>();
         playerList = GameObject.FindGameObjectsWithTag("Player");
         ChangeState(lurkState);
         

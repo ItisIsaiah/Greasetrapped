@@ -10,11 +10,14 @@ public class Fries : NetworkBehaviour
     NavMeshAgent agent;
     [SerializeField]
     Transform testPlayer;
-
+    bool foundSomething;
+    FOV sight;
     
     // Start is called before the first frame update
     void Start()
     {
+        sight = GetComponent<FOV>();
+        foundSomething =false;
         agent = GetComponent<NavMeshAgent>();
         //FindCertainPlayer(testPlayer);
     }
@@ -30,6 +33,7 @@ public class Fries : NetworkBehaviour
 
     public void FindCertainPlayer(Transform p,Transform returnPos,LurkState l)
     {
+        foundSomething= false;
         if (p != null)
         {
             Vector3 randomPosition = GetRandomPositionWithinRadius(p.position, radius);
@@ -38,11 +42,23 @@ public class Fries : NetworkBehaviour
             if (CanAgentReachTarget(agent, randomPosition))
             {
                 agent.SetDestination(randomPosition);
+                //If you find the target
+                    // ReturntoFrybro(l.f.position,true)
+
             }
             else
             {
                // FindCertainPlayer(p);
             }
+        }
+        
+    }
+
+    public void ReturntoFrybro(Transform f,bool foundSomething)
+    {
+        if (!foundSomething)
+        {
+            agent.SetDestination(f.position);
         }
     }
 

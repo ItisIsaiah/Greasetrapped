@@ -418,6 +418,7 @@
 "Assets/FastIK/Scripts/Sample/SampleRotator.cs"
 "Assets/FastIK/Scripts/Sample/SampleSinMover.cs"
 "Assets/ParrelSync/Examples/CustomArgumentExample.cs"
+"Assets/Scripts/FOV.cs"
 "Assets/Scripts/Frybro/ChaseState.cs"
 "Assets/Scripts/Frybro/Fries.cs"
 "Assets/Scripts/Frybro/FrybroCore.cs"
