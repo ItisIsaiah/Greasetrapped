@@ -5,7 +5,8 @@ using UnityEngine;
 public interface Minigame { 
 
     void SetUp();
-    void GameLoop();
+    void GameLoop(MinigameManager m);
     void Abort();
+    void WinGame(MinigameManager m);
     
 }

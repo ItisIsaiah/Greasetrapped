@@ -22,6 +22,8 @@ public class PlayerController : NetworkBehaviour
         c.LookAt=transform;
         c.Follow = transform;
         miniGameState = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public override void OnNetworkSpawn()

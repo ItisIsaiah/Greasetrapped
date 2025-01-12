@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
-public class MashingGame : Minigame
+public class MashingGame : MonoBehaviour, Minigame
 {
     bool taskCompleted = false;
     int timesHit;
     int timesNeededToHit;
-    public void GameLoop()
+    public void GameLoop(MinigameManager m)
     {
         if (timesHit == timesNeededToHit)
         {
-
+            WinGame(m);
         }
     }
 
@@ -29,10 +30,21 @@ public class MashingGame : Minigame
         timesHit = 0;
     }
 
+
+    public void WinGame(MinigameManager m)
+    {
+        m.CompletedTask();
+    }
+
     public void addOne()
     {
         timesHit++;
     }
 
+
+    private void OnDisable()
+    {
+        Debug.Log("I was disabled");
+    }
 
 }

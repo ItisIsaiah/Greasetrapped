@@ -576,10 +576,11 @@
 "Assets/DreamOS - Complete OS UI/Standard Assets/Utility/FOVKick.cs"
 "Assets/DreamOS - Complete OS UI/Standard Assets/Utility/LerpControlledBob.cs"
 "Assets/EasyIK/Assets/Scripts/EasyIK.cs"
+"Assets/GameManager.cs"
 "Assets/MashingGame.cs"
 "Assets/Minigame.cs"
+"Assets/MinigameManager.cs"
 "Assets/ParrelSync/Examples/CustomArgumentExample.cs"
-"Assets/PlayerTask.cs"
 "Assets/Scripts/FOV.cs"
 "Assets/Scripts/Frybro/ChaseState.cs"
 "Assets/Scripts/Frybro/Fries.cs"
@@ -589,6 +590,7 @@
 "Assets/Scripts/Frybro/PatrolState.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/StartNetwork.cs"
+"Assets/TriggerHandler.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
