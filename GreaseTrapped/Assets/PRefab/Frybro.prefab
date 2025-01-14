@@ -13477,15 +13477,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 17.4
-  radius: 0
+  radius: 37.03
   canSee: 0
   target: {fileID: 0}
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!195 &4204710575720346513
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13496,7 +13496,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -13524,6 +13524,7 @@ MonoBehaviour:
   playerList: []
   fries: []
   RoomPoints: []
+  sight: {fileID: 0}
 --- !u!54 &6749037018889821773
 Rigidbody:
   m_ObjectHideFlags: 0

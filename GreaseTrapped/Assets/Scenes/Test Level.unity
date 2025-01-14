@@ -4100,7 +4100,7 @@ GameObject:
   - component: {fileID: 1295597787}
   - component: {fileID: 1295597786}
   - component: {fileID: 1295597785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5017,7 +5017,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 55
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -5026,7 +5026,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.5
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: efc73355fdf1df445a3f2b36f658e6c3, type: 2}
   m_BuildHeightMesh: 0
@@ -5048,7 +5048,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 55
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -6770,26 +6770,6 @@ PrefabInstance:
       propertyPath: RoomPoints.Array.data[4]
       value: 
       objectReference: {fileID: 412062797}
-    - target: {fileID: 6650348591300059149, guid: 39bee2c68a3b95f44bf8df226181e7eb,
-        type: 3}
-      propertyPath: radius
-      value: 37.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650348591300059149, guid: 39bee2c68a3b95f44bf8df226181e7eb,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650348591300059149, guid: 39bee2c68a3b95f44bf8df226181e7eb,
-        type: 3}
-      propertyPath: targetMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650348591300059149, guid: 39bee2c68a3b95f44bf8df226181e7eb,
-        type: 3}
-      propertyPath: obstructionMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6878309419923507062, guid: 39bee2c68a3b95f44bf8df226181e7eb,
         type: 3}
       propertyPath: GlobalObjectIdHash

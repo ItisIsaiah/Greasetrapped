@@ -22,7 +22,7 @@ public class LurkState : FState
 
     public void OnHurt(FrybroCore f)
     {
-        throw new System.NotImplementedException();
+        f.ChangeState(f.chaseState);
         //Return all the fries
     }
 

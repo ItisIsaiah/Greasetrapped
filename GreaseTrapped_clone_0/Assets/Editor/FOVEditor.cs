@@ -20,7 +20,7 @@ public class FOVEditor : Editor
         if (fieldOfView.canSee)
         {
             Handles.color = Color.blue;
-            Handles.DrawLine(fieldOfView.transform.position, fieldOfView.target.transform.position);
+            Handles.DrawLine(fieldOfView.transform.position, fieldOfView.targets[0].transform.position);
         }
 
 ;

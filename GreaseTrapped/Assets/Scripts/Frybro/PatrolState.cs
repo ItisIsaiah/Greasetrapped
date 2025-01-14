@@ -35,5 +35,9 @@ public class PatrolState : FState
             k = Random.Range(0, f.RoomPoints.Length - 1);
             f.agent.SetDestination(f.RoomPoints[k].position);
         }
+        if (f.sight.canSee)
+        {
+            f.ChangeState(f.chaseState);
+        }
     }
 }

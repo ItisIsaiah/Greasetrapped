@@ -11,7 +11,8 @@ public class FOV : MonoBehaviour
     public float angle;
     public float radius;
     public bool canSee;
-    public GameObject target;
+    public GameObject objectseen;
+    public GameObject[] targets;
 
     [SerializeField]
     LayerMask targetMask;
@@ -21,9 +22,9 @@ public class FOV : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (target == null)
+        if (targets == null)
         {
-            target = GameObject.FindGameObjectWithTag("Player");
+            targets = GameObject.FindGameObjectsWithTag("Player");
         }
 
         StartCoroutine(FOVRoutine());
@@ -62,21 +63,24 @@ public class FOV : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distance2target, obstructionMask))
                 {
                     canSee = true;
-
+                    objectseen=rangeChecks[0].gameObject;
                 }
                 else
                 {
                     canSee = false;
+                    objectseen = null;
                 }
             }
             else
             {
                 canSee = false;
-            }
+                objectseen=null;
+}
         }
         else if (canSee)
         {
             canSee = false;
+            objectseen = null;  
         }
 
     }

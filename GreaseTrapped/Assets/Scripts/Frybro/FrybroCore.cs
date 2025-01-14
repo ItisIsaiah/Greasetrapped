@@ -14,7 +14,7 @@ public class FrybroCore : NetworkBehaviour
     public ChaseState chaseState = new ChaseState();
     public PatrolState patrolState = new PatrolState();
     public LurkState lurkState = new LurkState();
-    FOV sight;
+    public FOV sight;
     // Start is called before the first frame update
     void Start()
     {
