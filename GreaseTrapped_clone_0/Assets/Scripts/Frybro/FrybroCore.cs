@@ -18,9 +18,12 @@ public class FrybroCore : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        agent = GetComponent<NavMeshAgent>();   
+        //state = new LurkState();
         sight = GetComponent<FOV>();
         playerList = GameObject.FindGameObjectsWithTag("Player");
-        ChangeState(lurkState);
+        ChangeState(patrolState);
         
     } 
         
@@ -34,9 +37,13 @@ public class FrybroCore : NetworkBehaviour
         state.UpdateState(this);
     }
 
+
     public void ChangeState(FState newState)
     {
-        state.OnExit(this);
+        if (state != null)
+        {
+            state.OnExit(this);
+        }
         state = newState;
         state.OnEnter(this);
     }
