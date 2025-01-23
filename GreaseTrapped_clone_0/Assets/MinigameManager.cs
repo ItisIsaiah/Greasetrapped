@@ -21,6 +21,7 @@ public class MinigameManager : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        currMinigame = minigame.GetComponentInChildren<Minigame>();
         minigame.SetActive(false);
     }
 

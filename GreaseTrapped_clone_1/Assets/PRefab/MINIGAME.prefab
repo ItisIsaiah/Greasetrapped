@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5643347112373763883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630063026875325339}
+  - component: {fileID: 5766375972666871721}
+  - component: {fileID: 4583046344318753333}
+  - component: {fileID: 395310645760580306}
+  m_Layer: 0
+  m_Name: MINIGAME
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &630063026875325339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643347112373763883}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -962.6, y: -596.23914, z: -36.532707}
+  m_LocalScale: {x: 1.5058824, y: 1.5058824, z: 1.5058824}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3874927956195287757}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5766375972666871721
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643347112373763883}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.07
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4583046344318753333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643347112373763883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2344264110
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &395310645760580306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643347112373763883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40316fdb1b0395e4faeab6332e2f9552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainScript: {fileID: 7974884991649101851}
+--- !u!1 &6693115375153033610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3874927956195287757}
+  - component: {fileID: 7974884991649101851}
+  m_Layer: 5
+  m_Name: MinigameManager
+  m_TagString: Minigame1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3874927956195287757
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693115375153033610}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 24.26}
+  m_LocalScale: {x: 0.6640625, y: 0.6640625, z: 0.6640625}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8920582440487343712}
+  m_Father: {fileID: 630063026875325339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 637.49994, y: 395.94003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7974884991649101851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693115375153033610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9643b142bd797614f8e1e40c6ddef51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigame: {fileID: 7467897018534302759}
+  C: {fileID: 5766375972666871721}
+  isCompleted:
+    m_InternalValue: 0
+  description: Minigame for mashing hte button
+--- !u!1001 &1479932950313837410
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3874927956195287757}
+    m_Modifications:
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 919.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298599095995840325, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_Name
+      value: MashingMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298599095995840325, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298599095995840325, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+        type: 3}
+      propertyPath: m_TagString
+      value: Minigame1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b3ec92debbbc744b98ed2ce6b64f747, type: 3}
+--- !u!1 &7467897018534302759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8298599095995840325, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+    type: 3}
+  m_PrefabInstance: {fileID: 1479932950313837410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8920582440487343712 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8017956935151121666, guid: 9b3ec92debbbc744b98ed2ce6b64f747,
+    type: 3}
+  m_PrefabInstance: {fileID: 1479932950313837410}
+  m_PrefabAsset: {fileID: 0}

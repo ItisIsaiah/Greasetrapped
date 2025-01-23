@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Minigame1
+  - SpectatorUI
+  - YourCamera
   layers:
   - Default
   - TransparentFX
