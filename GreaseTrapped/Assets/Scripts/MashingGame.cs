@@ -47,4 +47,9 @@ public class MashingGame : MonoBehaviour, Minigame
         Debug.Log("I was disabled");
     }
 
+    private void OnEnable()
+    {
+        Debug.Log("I was enabled");
+    }
+
 }

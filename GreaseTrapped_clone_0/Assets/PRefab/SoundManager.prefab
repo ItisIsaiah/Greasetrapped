@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4259064788466443153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7298955761789792035}
+  - component: {fileID: 7411322705019310042}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7298955761789792035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259064788466443153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1524782, y: 6.831727, z: 6.659832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7411322705019310042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259064788466443153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0df945429290c4b8f31bd1b334281f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: snarl
+    clip: {fileID: 8300000, guid: 7cc8176df39fdf54db56836aeebaf6aa, type: 3}
+    volume: 0.235
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: scream
+    clip: {fileID: 8300000, guid: 34a2c5230e85ac44c9112235efcd51e1, type: 3}
+    volume: 0.235
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: playerbreath
+    clip: {fileID: 8300000, guid: 533fbc2aff7b1f84fa94527bb1389eca, type: 3}
+    volume: 0.235
+    pitch: 3
+    loop: 1
+    source: {fileID: 0}
+  - name: playershove
+    clip: {fileID: 8300000, guid: 64e52f8f99e847246b6ca43331860664, type: 3}
+    volume: 0.235
+    pitch: 3
+    loop: 1
+    source: {fileID: 0}
+  - name: search
+    clip: {fileID: 8300000, guid: 3755b4dfac7f91e4ab52bebc097b6caf, type: 3}
+    volume: 0.235
+    pitch: 0.742
+    loop: 1
+    source: {fileID: 0}
+  - name: playerstun
+    clip: {fileID: 8300000, guid: 6a7f6cc35dcf945488fd16521c28d3c6, type: 3}
+    volume: 0.235
+    pitch: 0.742
+    loop: 1
+    source: {fileID: 0}
+  - name: playerstun
+    clip: {fileID: 8300000, guid: 6a7f6cc35dcf945488fd16521c28d3c6, type: 3}
+    volume: 0.235
+    pitch: 0.742
+    loop: 1
+    source: {fileID: 0}
+  - name: boop
+    clip: {fileID: 8300000, guid: 52c9926336cb09749ab386ae0b073576, type: 3}
+    volume: 0.597
+    pitch: 1.074
+    loop: 0
+    source: {fileID: 0}
+  - name: confirm
+    clip: {fileID: 8300000, guid: d4784ffe276676c44aee4105efd47be6, type: 3}
+    volume: 0.652
+    pitch: 0.943
+    loop: 0
+    source: {fileID: 0}
+  - name: select
+    clip: {fileID: 8300000, guid: 7dc62663f96d3724a8048accd472a61e, type: 3}
+    volume: 0.652
+    pitch: 0.943
+    loop: 0
+    source: {fileID: 0}

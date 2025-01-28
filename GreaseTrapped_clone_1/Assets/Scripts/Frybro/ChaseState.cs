@@ -9,12 +9,19 @@ public class ChaseState : FState
 
     public void OnEnter(FrybroCore f)
     {
+        f.animator.SetFloat("speed",1);
+        f.animator.SetBool("aggressive",true);
+        AudioManager.instance.Play("scream");
         cantsee = 0;
     }
 
     public void OnExit(FrybroCore f)
     {
-       // throw new System.NotImplementedException();
+        f.animator.SetBool("aggressive", false);
+        f.animator.SetFloat("speed", 0);
+        AudioManager.instance.Stop("scream");
+       
+        // throw new System.NotImplementedException();
     }
 
     public void OnHurt(FrybroCore f)
@@ -24,16 +31,34 @@ public class ChaseState : FState
 
     public void UpdateState(FrybroCore f)
     {
-        if (f.sight.canSee||cantsee>=sightTimer)
+        if (f.sight.canSee||cantsee<=sightTimer)
         {
+            if (!f.sight.canSee)
+            {
+                cantsee += Time.deltaTime;
+            }
+            else
+            {
+                cantsee = 0;
+            }
+
+
             f.agent.SetDestination(f.sight.objectseen.transform.position);
             cantsee = 0;
+
+            if (Vector3.Distance(f.transform.position, f.sight.objectseen.transform.position) < .8f)
+            {
+                f.sight.objectseen.GetComponent<PlayerController>().Die();
+            }
         }
         else
         {
-            cantsee += Time.deltaTime;
+            //cantsee += Time.deltaTime;
             f.ChangeState(f.patrolState);
         }
+
+
+       
     }
 
    

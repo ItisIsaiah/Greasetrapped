@@ -12,6 +12,7 @@ public class NetworkSceneManager : NetworkBehaviour
 {
 
     private string ipAddress = "127.0.0.1";
+    
     private UnityTransport transport;
     public TMP_InputField inputField;
     public Button readyUpButton;
@@ -19,28 +20,49 @@ public class NetworkSceneManager : NetworkBehaviour
     NetworkVariableReadPermission.Everyone,  // anyone can read
     NetworkVariableWritePermission.Server    // only server can write
     );
+    public bool isReady=false;
     public TextMeshProUGUI LobbyCount;
+    public GameObject StartButton;
 
 
     void Start()
     {
+        isReady = false;
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         readyPlayers.Value = 0;
+        StartButton.SetActive( true );
+        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(NetworkManager.Singleton.gameObject );
+
     }
 
-  
+
 
 
 
     void UpdateUI(ulong clientId)
     {
-        LobbyCount.text="Ready: "+readyPlayers.Value+"//"+ GameManager.Instance.GetPlayerGameObjects().Count;
+        Debug.Log("I ran 1");
+        LobbyCount.text = "Ready: " + readyPlayers.Value + "//" + GameManager.Instance.playerClientIds.Count;
     }
 
     [ClientRpc]
     private void UpdateReadyCountClientRpc()
     {
-        LobbyCount.text = "Ready: " + readyPlayers.Value + "//" + GameManager.Instance.GetPlayerGameObjects().Count; 
+        Debug.Log("I ran 2");
+        LobbyCount.text = "Ready: " + readyPlayers.Value + "//" + GameManager.Instance.playerClientIds.Count; 
+        if(IsHost && readyPlayers.Value >= GameManager.Instance.playerClientIds.Count)
+        {
+            StartButton.SetActive(true);
+
+            Button s = StartButton.GetComponent<Button>();
+
+
+            if (!IsHost)
+            {
+                ChangeButtonColor(s,Color.gray);
+            }
+        }
     }
 
 
@@ -74,11 +96,12 @@ public class NetworkSceneManager : NetworkBehaviour
             }
         }
 
+
+
         
-        if (IsServer)
-        {
+        
             NetworkManager.Singleton.OnClientConnectedCallback += UpdateUI;
-        }
+        
     }
 
     public void JoinButton()
@@ -97,19 +120,13 @@ public class NetworkSceneManager : NetworkBehaviour
 
     public void ReadyUp()
     {
-        ChangeButtonColor(Color.green);
-        readyUpButton.GetComponentInChildren<TMP_Text>().text = "Ready";
-
-        if (IsServer)
+        if (!isReady)
         {
-            readyPlayers.Value++;
-            UpdateReadyCountClientRpc();
+            ChangeButtonColor(readyUpButton, Color.green);
+            readyUpButton.GetComponentInChildren<TMP_Text>().text = "Ready";
+            AddReadyPlayerServerRpc();
+            isReady = true;
         }
-        else
-        {
-            UpdateReadyCountClientRpc();
-        }
-
     }
     [ServerRpc(RequireOwnership = false)]
     private void AddReadyPlayerServerRpc()
@@ -119,9 +136,9 @@ public class NetworkSceneManager : NetworkBehaviour
         UpdateReadyCountClientRpc();
     }
 
-    void ChangeButtonColor(Color newColor)
+    void ChangeButtonColor(Button b,Color newColor)
     {
-        readyUpButton.colors = new ColorBlock
+        b.colors = new ColorBlock
         {
             normalColor = newColor,
             highlightedColor = newColor * 1.2f,  // Slightly brighter on hover
@@ -131,5 +148,16 @@ public class NetworkSceneManager : NetworkBehaviour
             colorMultiplier = 1f
         };
     }
+
+    public void NetworkChangeScene()
+    {
+       
+        NetworkManager.Singleton.SceneManager.LoadScene("Test Level", LoadSceneMode.Single);
+        GameManager.Instance.isUI = false;
+    }
+
+   
+
+
 
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
@@ -9,7 +10,9 @@ public class GameManager : NetworkBehaviour
     public MinigameManager[] minigames;
     public NetworkVariable<int> minigamesFinished=new NetworkVariable<int>();
    // public NetworkVariable<List<int>> pID= new NetworkVariable<List<int>>();
-    private NetworkList<ulong> playerClientIds;
+    public NetworkList<ulong> playerClientIds;
+    public NetworkVariable<int> playersAlive;
+    public bool isUI;
 
 // Initialize in Awake or Start
     void Start()
@@ -31,35 +34,25 @@ public class GameManager : NetworkBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        if (IsServer)
+        if (IsHost)
         {
+
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
             pCount = NetworkManager.Singleton.ConnectedClientsList.Count;
-
+            playersAlive.Value = pCount;
         }
     }
 
 
-        public void RegisterPlayer(ulong clientId)
-    {
-        if (IsServer)
-        {
-            playerClientIds.Add(clientId);
-        }
-    }
+      
 
-    public void UnregisterPlayer(ulong clientId)
-    {
-        if (IsServer)
-        {
-            playerClientIds.Remove(clientId);
-        }
-    }
+    
 
     public List<GameObject> GetPlayerGameObjects()
     {
@@ -77,8 +70,10 @@ public class GameManager : NetworkBehaviour
     }
     private void OnClientConnected(ulong clientId)
     {
-        if (IsServer)
+        if (IsHost)
         {
+            Debug.Log($"{clientId}");
+            playerClientIds.Add(clientId);
             pCount++;
             // Optionally: Broadcast player count to all clients
             UpdatePlayerCountServerRpc();
@@ -87,8 +82,9 @@ public class GameManager : NetworkBehaviour
 
     private void OnClientDisconnected(ulong clientId)
     {
-        if (IsServer)
+        if (IsHost)
         {
+            playerClientIds.Remove(clientId);
             pCount--;
             // Optionally: Broadcast player count to all clients
             UpdatePlayerCountServerRpc();
@@ -114,8 +110,8 @@ public class GameManager : NetworkBehaviour
 // Update is called once per frame
     void Update()
     {
-        if (!IsServer) return;
-        if (minigamesFinished.Value==minigames.Length)
+        if (!IsHost||isUI) return;
+        if (minigamesFinished.Value==minigames.Length )
         {
             Debug.Log("Completed all the tasks");
             //Go to the next scene
@@ -132,5 +128,14 @@ public class GameManager : NetworkBehaviour
     {
         m.isCompleted.Value=false;
         minigamesFinished.Value--;
+    }
+
+
+    public void PlayersDead()
+    {
+        if (playersAlive.Value <=0)
+        {
+            NetworkManager.SceneManager.LoadScene("YOU ALL LOSE",LoadSceneMode.Single);
+        }
     }
 }

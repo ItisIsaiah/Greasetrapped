@@ -11,12 +11,16 @@ public class PatrolState : FState
     {
          k = Random.Range(0, f.RoomPoints.Length-1);
         f.agent.SetDestination(f.RoomPoints[k].position);
+        f.animator.SetFloat("speed", 1);
+        AudioManager.instance.Play("snarl");
         Debug.Log("Im going here" + k + " father!");
     }
 
     public void OnExit(FrybroCore f)
     {
         //animation?
+        f.animator.SetFloat("speed", 0);
+        AudioManager.instance.Stop("snarl");
     }
 
     public void OnHurt(FrybroCore f)
