@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using Unity.Netcode.Components;
 using Unity.VisualScripting;
@@ -36,6 +37,7 @@ public class FrybroCore : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsHost) return;
         state.UpdateState(this);
     }
 
@@ -59,5 +61,25 @@ public class FrybroCore : NetworkBehaviour
 
         }
 
+    }
+
+    public void Hint(Transform personFound)
+    {
+        Vector3 closestPoint=Vector3.zero;
+        closestPoint = new Vector3(0, 500, 0);
+        float closestDistance=Int32.MaxValue;
+        foreach (Transform f in RoomPoints)
+        {
+            float distance = Vector3.Distance(personFound.position, f.position);
+            if (closestDistance > distance)
+            {
+                closestPoint = f.position;
+                closestDistance = distance;
+            }
+        }
+
+        ChangeState(patrolState);
+        patrolState.targetPos.position = closestPoint;
+        
     }
 }

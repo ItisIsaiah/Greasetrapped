@@ -32,10 +32,7 @@ public class PlayerController : NetworkBehaviour
     {
         SpectatorUI = GameObject.FindGameObjectWithTag("SpectatorUI");
         SpectatorUI.SetActive(false);
-        cam = Camera.main.transform;
-        c = GameObject.FindGameObjectWithTag("YourCamera").GetComponent<CinemachineFreeLook>();
-        c.LookAt = transform;
-        c.Follow = transform;
+        
         miniGameState = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,8 +41,12 @@ public class PlayerController : NetworkBehaviour
     {
         spectatorID.Value = Random.Range(0, 9999);
         dead.Value = false;
-
-
+        if (!IsOwner) return;
+        cam = Camera.main.transform;
+        c = GameObject.FindGameObjectWithTag("YourCamera").GetComponent<CinemachineFreeLook>();
+        c.LookAt = transform;
+        c.Follow = transform;
+        transform.position= GameManager.Instance.spawnPoints[0].transform.position;
     }
 
     public override void OnNetworkSpawn()
@@ -78,7 +79,7 @@ public class PlayerController : NetworkBehaviour
                 transform.position += moveDir.normalized * speed * Time.deltaTime;
 
             }
-            if (Input.GetKeyDown("Fire1"))
+            if (Input.GetMouseButtonDown(0))
             {
                 //Push if the player is in teh radius 
 
@@ -135,6 +136,7 @@ public class PlayerController : NetworkBehaviour
         //if all players are dead, display the deathscreen
         SpectatorUI.SetActive(true);
         players = GameManager.Instance.GetPlayerGameObjects();
+        GameManager.Instance.PlayersDeadServerRpc();
 
     }
 

@@ -416,12 +416,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc65389ee67e1ea47975d2e3560e6bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigames: []
+  minigamesTotal: 1
+  spawnPoints: []
   minigamesFinished:
     m_InternalValue: 0
   playersAlive:
     m_InternalValue: 0
   isUI: 1
+  textmeshPro: {fileID: 0}
   pCount: 0
 --- !u!4 &62410147
 Transform:

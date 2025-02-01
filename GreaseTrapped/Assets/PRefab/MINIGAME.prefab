@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3874927956195287757}
   - component: {fileID: 7974884991649101851}
+  - component: {fileID: 8653700604159148417}
   m_Layer: 5
   m_Name: MinigameManager
   m_TagString: Minigame1
@@ -144,6 +145,27 @@ MonoBehaviour:
   isCompleted:
     m_InternalValue: 0
   description: Minigame for mashing hte button
+--- !u!114 &8653700604159148417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693115375153033610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1854213280
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1479932950313837410
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -153,6 +153,7 @@ public class NetworkSceneManager : NetworkBehaviour
     {
        
         NetworkManager.Singleton.SceneManager.LoadScene("Test Level", LoadSceneMode.Single);
+        GameManager.Instance.StartCoroutine(GameManager.Instance.StartCountdown());
         GameManager.Instance.isUI = false;
     }
 

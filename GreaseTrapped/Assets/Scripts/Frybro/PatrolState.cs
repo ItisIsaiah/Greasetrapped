@@ -7,6 +7,8 @@ public class PatrolState : FState
 
     float patrolTimer=30f;
     int k=0;
+
+    public Transform targetPos;
     public void OnEnter(FrybroCore f)
     {
          k = Random.Range(0, f.RoomPoints.Length-1);
@@ -14,6 +16,10 @@ public class PatrolState : FState
         f.animator.SetFloat("speed", 1);
         AudioManager.instance.Play("snarl");
         Debug.Log("Im going here" + k + " father!");
+        
+        targetPos.position = f.RoomPoints[k].position;
+        
+        
     }
 
     public void OnExit(FrybroCore f)
@@ -21,6 +27,7 @@ public class PatrolState : FState
         //animation?
         f.animator.SetFloat("speed", 0);
         AudioManager.instance.Stop("snarl");
+        targetPos.position=Vector3.zero;
     }
 
     public void OnHurt(FrybroCore f)
@@ -30,9 +37,9 @@ public class PatrolState : FState
 
     public void UpdateState(FrybroCore f)
     {
-        if (!(Vector3.Distance(f.RoomPoints[k].position, f.transform.position) < .3f))
+        if (!(Vector3.Distance(targetPos.position, f.transform.position) < .3f))
         {
-            f.agent.SetDestination(f.RoomPoints[k].position);
+            f.agent.SetDestination(targetPos.position);
         }
         else
         {

@@ -1,18 +1,26 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : NetworkBehaviour
 {
    
-    public MinigameManager[] minigames;
+    public int minigamesTotal=3;
+    bool gameStarted;
+    float countdownTime=5f;
+    public List<GameObject> spawnPoints;
     public NetworkVariable<int> minigamesFinished=new NetworkVariable<int>();
    // public NetworkVariable<List<int>> pID= new NetworkVariable<List<int>>();
     public NetworkList<ulong> playerClientIds;
     public NetworkVariable<int> playersAlive;
     public bool isUI;
+    public TextMeshProUGUI textmeshPro;
+    
 
 // Initialize in Awake or Start
     void Start()
@@ -25,7 +33,7 @@ public class GameManager : NetworkBehaviour
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
-
+        
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -111,17 +119,20 @@ public class GameManager : NetworkBehaviour
     void Update()
     {
         if (!IsHost||isUI) return;
-        if (minigamesFinished.Value==minigames.Length )
+        if (minigamesFinished.Value==minigamesTotal )
         {
             Debug.Log("Completed all the tasks");
             //Go to the next scene
         }
+
+        
     }
 
     public void CompletedMinigame(MinigameManager m)
     {
         m.isCompleted.Value=true;
         minigamesFinished.Value++;
+        textmeshPro.text = "TASK FINISHED"+ minigamesFinished.Value+" / "+minigamesTotal;
     }
 
     public void ResetTask(MinigameManager m)
@@ -130,12 +141,32 @@ public class GameManager : NetworkBehaviour
         minigamesFinished.Value--;
     }
 
-
-    public void PlayersDead()
+    [ServerRpc]
+    public void PlayersDeadServerRpc()
     {
+        playersAlive.Value -= 0;
         if (playersAlive.Value <=0)
         {
             NetworkManager.SceneManager.LoadScene("YOU ALL LOSE",LoadSceneMode.Single);
         }
+    }
+    public IEnumerator StartCountdown()
+    {
+        playersAlive.Value = playerClientIds.Count;
+        textmeshPro = GameObject.FindGameObjectWithTag("TaskUI").GetComponent<TextMeshProUGUI>();
+        spawnPoints = GameObject.FindGameObjectsWithTag("Spawnpoint").ToList();
+        yield return new WaitForSeconds(countdownTime);
+        gameStarted = true;
+        int i = 0;
+        foreach (GameObject g in GetPlayerGameObjects())
+        {
+            g.transform.position=spawnPoints[i].transform.position;
+            i++;
+        }
+    }
+
+    public bool HasGameStarted()
+    {
+        return gameStarted;
     }
 }
